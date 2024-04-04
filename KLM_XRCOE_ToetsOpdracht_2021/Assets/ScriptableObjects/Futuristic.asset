@@ -10,8 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1b087676e08364b80bde2a7b4c32bada, type: 3}
-  m_Name: Classic
+  m_Name: Futuristic
   m_EditorClassIdentifier: 
   brand: KLM
-  type: 737
+  type: PH-BKM
   material: {fileID: 2100000, guid: 4dc4745a3c2024ac7bfdf1ee17081367, type: 2}
