@@ -51,4 +51,9 @@ public class Plane : MonoBehaviour
 
         }
     }
+
+    public void Park()
+    {
+        Debug.Log("Now Parking " + gameObject.name);
+    }
 }
