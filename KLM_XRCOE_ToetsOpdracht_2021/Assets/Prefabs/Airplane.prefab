@@ -133,7 +133,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   planeData: {fileID: 11400000, guid: 0b0911f492dca4afc9b414ccf2558dd4, type: 2}
   navMeshAgent: {fileID: 3822855374174529763}
-  range: 4
+  range: 8
+  light: {fileID: 2911937085147969571}
 --- !u!195 &3822855374174529763
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -276,7 +277,7 @@ PrefabInstance:
     - target: {fileID: -1806680513116206669, guid: 875bc6571185749e1b00cb00e3fcc805, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: b9398fd88cd01400991bcd595d57e90f, type: 2}
+      objectReference: {fileID: 2100000, guid: 25167ed1a50b64a0eb65cec658f789fb, type: 2}
     - target: {fileID: 919132149155446097, guid: 875bc6571185749e1b00cb00e3fcc805, type: 3}
       propertyPath: m_Name
       value: simple plane

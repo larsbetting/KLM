@@ -7,7 +7,9 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     public UnityEvent ParkEvent;
-    
+    public UnityEvent LightsOnEvent;
+    public UnityEvent LightsOffEvent;
+
     #region variables
     public GameObject[] hangars;
     public GameObject[] planes;
@@ -25,23 +27,37 @@ public class GameManager : MonoBehaviour
 
     #endregion
 
-
-
+  
     // Start is called before the first frame update
     void Start()
     {
+        ParkEvent = new UnityEvent();
+        LightsOnEvent = new UnityEvent();
+        LightsOffEvent = new UnityEvent();
+
         hangars = GameObject.FindGameObjectsWithTag("hangar");
         hangarIDs = new Text[hangars.Length];
 
+
         planes = GameObject.FindGameObjectsWithTag("plane");
-        for(int i = 0; i < planes.Length; i++)
+
+
+        for (int i = 0; i < planes.Length; i++)
         {
-           // ParkEvent.AddListener(planes[i].GetComponent<Plane>().Park);
+            int currentIndex = i;
+            ParkEvent.AddListener(delegate { planes[currentIndex].GetComponent<Plane>().Park(hangars[currentIndex].transform.position); });
+            LightsOnEvent.AddListener(planes[currentIndex].GetComponent<Plane>().LightsOn);
+            LightsOffEvent.AddListener(planes[currentIndex].GetComponent<Plane>().LightsOff);
         }
+
+
+
         InitText();
 
         
         ParkButton.onClick.AddListener(StartParkEvent);
+        LightsOnButton.onClick.AddListener(StartLightsOnEvent);
+        LightsOffButton.onClick.AddListener(StartLightsOffEvent);
 
     }
 
@@ -82,6 +98,16 @@ public class GameManager : MonoBehaviour
     public void StartParkEvent()
     {
         ParkEvent.Invoke();
+    }
+
+    public void StartLightsOnEvent()
+    {
+        LightsOnEvent.Invoke();
+    }
+
+    public void StartLightsOffEvent()
+    {
+        LightsOffEvent.Invoke();
     }
 
 

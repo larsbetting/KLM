@@ -15,9 +15,11 @@ public class Plane : MonoBehaviour
     [SerializeField]
     private float range;
 
+    private bool isPatrolling = true;
     public string brand { get; private set; }
     public string type { get; private set; }
 
+    public new Light light;
     // Start is called before the first frame update
     void Start()
     {
@@ -25,17 +27,21 @@ public class Plane : MonoBehaviour
         //ID = planeData.ID;
         brand = planeData.brand;
         type = planeData.type;
-        //IDText.text = ID.ToString(); // convert the ID to a string to be displayed on top of the plane
         gameObject.GetComponent<Renderer>().material = planeData.material;
         navMeshAgent.updateRotation = false;
         navMeshAgent.updateUpAxis = false;
-        //navMeshAgent.SetDestination(new Vector3(Random.Range(-10.0f, 10.0f), 0.0f, Random.Range(-10.0f, 10.0f)));
+
+
+        light.enabled = false;
     }
 
     // Update is called once per frame
     void Update()
     {
-        Patrol();
+        if (isPatrolling)
+        {
+            Patrol();
+        }
     }
 
     void Patrol()
@@ -52,8 +58,20 @@ public class Plane : MonoBehaviour
         }
     }
 
-    public void Park()
+    public void Park(Vector3 newDestination)
     {
-        Debug.Log("Now Parking " + gameObject.name);
+        isPatrolling = false;
+        
+        navMeshAgent.SetDestination(newDestination);
+    }
+
+    public void LightsOn()
+    {
+        light.enabled = true;
+    }
+
+    public void LightsOff()
+    {
+        light.enabled = false;
     }
 }
