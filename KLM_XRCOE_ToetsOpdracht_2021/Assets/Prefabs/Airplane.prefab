@@ -24,13 +24,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 701791057389286291}
-  m_LocalRotation: {x: 0.17364816, y: 0, z: 0, w: 0.9848078}
-  m_LocalPosition: {x: 0, y: 0.264, z: 0.189}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalRotation: {x: 0, y: 0.84028286, z: 0.5421483, w: 0}
+  m_LocalPosition: {x: 0, y: 0.0027, z: 0.00059}
+  m_LocalScale: {x: 0.009999995, y: 0.009999997, z: 0.009999994}
   m_Children: []
-  m_Father: {fileID: 7921607096605304072}
-  m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 20, y: 0, z: 0}
+  m_Father: {fileID: 1567022634948598516}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: -65.66, y: 180, z: 0}
 --- !u!108 &2911937085147969571
 Light:
   m_ObjectHideFlags: 0
@@ -43,7 +43,7 @@ Light:
   m_Type: 0
   m_Shape: 0
   m_Color: {r: 0.8396226, g: 0.09109115, b: 0.09109115, a: 1}
-  m_Intensity: 30
+  m_Intensity: 40
   m_Range: 0.8
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
@@ -133,7 +133,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   planeData: {fileID: 11400000, guid: 0b0911f492dca4afc9b414ccf2558dd4, type: 2}
   navMeshAgent: {fileID: 3822855374174529763}
-  range: 10
+  range: 4
 --- !u!195 &3822855374174529763
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -144,7 +144,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.00075000053
-  m_Speed: 3.5
+  m_Speed: 2
   m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 120
@@ -198,7 +198,6 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1567022634948598516}
-  - {fileID: 8572244494870686001}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -273,7 +272,7 @@ PrefabInstance:
     - target: {fileID: -7511558181221131132, guid: 875bc6571185749e1b00cb00e3fcc805, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: b9398fd88cd01400991bcd595d57e90f, type: 2}
+      objectReference: {fileID: 2100000, guid: 25167ed1a50b64a0eb65cec658f789fb, type: 2}
     - target: {fileID: -1806680513116206669, guid: 875bc6571185749e1b00cb00e3fcc805, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
