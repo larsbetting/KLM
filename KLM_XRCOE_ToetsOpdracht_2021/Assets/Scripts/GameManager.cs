@@ -6,9 +6,12 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
+
+    #region events
     public UnityEvent ParkEvent;
     public UnityEvent LightsOnEvent;
     public UnityEvent LightsOffEvent;
+    #endregion
 
     #region variables
     public GameObject[] hangars;
@@ -93,22 +96,22 @@ public class GameManager : MonoBehaviour
             textObject.transform.SetParent(canvasObject.transform, false);
             textObject.transform.localPosition = Vector3.zero;
         }
-    }
+    } // Initializes the text on each of the hangars
 
     public void StartParkEvent()
     {
         ParkEvent.Invoke();
-    }
+    } // triggers the parking event
 
     public void StartLightsOnEvent()
     {
         LightsOnEvent.Invoke();
-    }
+    } // triggers the lights on event
 
     public void StartLightsOffEvent()
     {
         LightsOffEvent.Invoke();
-    }
+    } // triggers the lights off event
 
 
 }
