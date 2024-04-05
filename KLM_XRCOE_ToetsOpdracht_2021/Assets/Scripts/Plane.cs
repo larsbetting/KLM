@@ -28,7 +28,6 @@ public class Plane : MonoBehaviour
         brand = planeData.brand;
         type = planeData.type;
         gameObject.GetComponent<Renderer>().material = planeData.material;
-        navMeshAgent.updateRotation = false;
         navMeshAgent.updateUpAxis = false;
 
 
@@ -42,6 +41,7 @@ public class Plane : MonoBehaviour
         {
             Patrol();
         }
+        //transform.LookAt(Vector3.forward);
     }
 
     void Patrol()
