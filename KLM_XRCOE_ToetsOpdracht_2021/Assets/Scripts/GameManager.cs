@@ -17,11 +17,14 @@ public class GameManager : MonoBehaviour
     public GameObject[] hangars;
     public GameObject[] planes;
     public Text[] hangarIDs;
+    public Image image;
 
     public Button ParkButton;
     public Button LightsOnButton;
     public Button LightsOffButton;
-    
+
+    private bool isParked = false;
+
     [SerializeField]
     private Canvas UICanvas;
 
@@ -31,7 +34,6 @@ public class GameManager : MonoBehaviour
     #endregion
 
   
-    // Start is called before the first frame update
     void Start()
     {
         //init events
@@ -46,7 +48,7 @@ public class GameManager : MonoBehaviour
         // store all planes in the scene into an array
         planes = GameObject.FindGameObjectsWithTag("plane");
 
-
+        // Add the respective event functions for each plane as a listener to the event in this class
         for (int i = 0; i < planes.Length; i++)
         {
             int currentIndex = i;
@@ -56,10 +58,10 @@ public class GameManager : MonoBehaviour
         }
 
 
-
+        // initialize text on the hangars
         InitText();
 
-        
+        // Set the respective buttonfunctions to be called on click
         ParkButton.onClick.AddListener(StartParkEvent);
         LightsOnButton.onClick.AddListener(StartLightsOnEvent);
         LightsOffButton.onClick.AddListener(StartLightsOffEvent);
@@ -115,5 +117,29 @@ public class GameManager : MonoBehaviour
         LightsOffEvent.Invoke();
     } // triggers the lights off event
 
+    public void DisplayCongratulations()
+    {
+        image.gameObject.SetActive(true);
+    }
+    private void Update()
+    {
+        if (!isParked)
+        {
+            int total = 0;
+            for (int i = 0; i < planes.Length; i++)
+            {
+                if (Vector3.Distance(planes[i].GetComponent<Plane>().navMeshAgent.transform.position, hangars[i].transform.position) < 0.01f)
+                {
+                    total++;
+                }
+            }
+            if(total == planes.Length)
+            {
+                DisplayCongratulations();
+                isParked = true;
+            }
+        }
+
+    }
 
 }
