@@ -187,7 +187,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &33546212
 GameObject:
@@ -2434,7 +2434,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7921607096605304072, guid: df3ed748b33e347d093c5eb104e90311, type: 3}
       propertyPath: m_RootOrder
-      value: 9
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 7921607096605304072, guid: df3ed748b33e347d093c5eb104e90311, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2749,14 +2749,10 @@ MonoBehaviour:
   LightsOffEvent:
     m_PersistentCalls:
       m_Calls: []
-  hangars: []
-  planes: []
-  hangarIDs: []
   image: {fileID: 1812909053}
-  ParkButton: {fileID: 791434194}
-  LightsOnButton: {fileID: 1780285967}
-  LightsOffButton: {fileID: 1439893228}
-  UICanvas: {fileID: 0}
+  parkButton: {fileID: 791434194}
+  lightsOnButton: {fileID: 1780285967}
+  lightsOffButton: {fileID: 1439893228}
   normalFont: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1001 &977574234
 PrefabInstance:
@@ -3962,7 +3958,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7921607096605304072, guid: df3ed748b33e347d093c5eb104e90311, type: 3}
       propertyPath: m_RootOrder
-      value: 8
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 7921607096605304072, guid: df3ed748b33e347d093c5eb104e90311, type: 3}
       propertyPath: m_LocalPosition.x
@@ -4102,7 +4098,7 @@ RectTransform:
   - {fileID: 1439893227}
   - {fileID: 1812909052}
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}

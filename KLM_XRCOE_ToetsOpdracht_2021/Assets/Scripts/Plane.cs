@@ -1,6 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using UnityEngine.UI;
 using UnityEngine.AI;
 using UnityEngine;
 
@@ -17,7 +16,7 @@ public class Plane : MonoBehaviour
     private float range;
 
     //currently using a bool, if there needs to be more advanced movement, we can use a state machine
-    private bool isPatrolling = true;
+    private bool _isPatrolling = true;
 
     //Created these in case they ever needed to be referenced by other scripts
     public string brand { get; private set; }
@@ -51,7 +50,7 @@ public class Plane : MonoBehaviour
     void Update()
     {
         // check if still patrolling
-        if (isPatrolling)
+        if (_isPatrolling)
         {
             Patrol();
         }
@@ -78,7 +77,7 @@ public class Plane : MonoBehaviour
 
     public void Park(Vector3 newDestination)
     {
-        isPatrolling = false; // no longer patrolling
+        _isPatrolling = false; // no longer patrolling
         
         navMeshAgent.SetDestination(newDestination); // set new destination given by gamemanager
     }

@@ -6,7 +6,7 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-
+    // Create events
     #region events
     public UnityEvent ParkEvent;
     public UnityEvent LightsOnEvent;
@@ -14,20 +14,20 @@ public class GameManager : MonoBehaviour
     #endregion
 
     #region variables
-    public GameObject[] hangars;
-    public GameObject[] planes;
-    public Text[] hangarIDs;
-    public Image image;
+    public GameObject[] hangars { get; private set; } // Array storing hangars in the scene
+    public GameObject[] planes { get; private set; } // Array storing planes in the scene
+    public Text[] hangarIDs { get; private set; }
+    public Image image; // Create reference to congratulations image
 
-    public Button ParkButton;
-    public Button LightsOnButton;
-    public Button LightsOffButton;
+    // create button references
+    public Button parkButton;
+    public Button lightsOnButton;
+    public Button lightsOffButton;
 
-    private bool isParked = false;
+    // create bool to check if the player has parked all planes
+    private bool _isParked = false;
 
-    [SerializeField]
-    private Canvas UICanvas;
-
+    // create reference to font that is used for hangar ID's
     [SerializeField]
     private Font normalFont;
 
@@ -62,9 +62,9 @@ public class GameManager : MonoBehaviour
         InitText();
 
         // Set the respective buttonfunctions to be called on click
-        ParkButton.onClick.AddListener(StartParkEvent);
-        LightsOnButton.onClick.AddListener(StartLightsOnEvent);
-        LightsOffButton.onClick.AddListener(StartLightsOffEvent);
+        parkButton.onClick.AddListener(StartParkEvent);
+        lightsOnButton.onClick.AddListener(StartLightsOnEvent);
+        lightsOffButton.onClick.AddListener(StartLightsOffEvent);
 
     }
 
@@ -123,20 +123,21 @@ public class GameManager : MonoBehaviour
     }
     private void Update()
     {
-        if (!isParked)
+        if (!_isParked)
         {
             int total = 0;
             for (int i = 0; i < planes.Length; i++)
             {
+                // check's if the distance between the plane and the hangar is "almost" the same
                 if (Vector3.Distance(planes[i].GetComponent<Plane>().navMeshAgent.transform.position, hangars[i].transform.position) < 0.01f)
                 {
                     total++;
                 }
             }
-            if(total == planes.Length)
+            if(total == planes.Length) // if all planes have been parked
             {
                 DisplayCongratulations();
-                isParked = true;
+                _isParked = true;
             }
         }
 
