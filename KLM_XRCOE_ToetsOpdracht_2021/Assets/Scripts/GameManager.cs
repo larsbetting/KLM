@@ -34,14 +34,16 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        //init events
         ParkEvent = new UnityEvent();
         LightsOnEvent = new UnityEvent();
         LightsOffEvent = new UnityEvent();
 
+        // find all hangars in the scene and store them into an array
         hangars = GameObject.FindGameObjectsWithTag("hangar");
-        hangarIDs = new Text[hangars.Length];
+        hangarIDs = new Text[hangars.Length]; //init same size array of text objects
 
-
+        // store all planes in the scene into an array
         planes = GameObject.FindGameObjectsWithTag("plane");
 
 
